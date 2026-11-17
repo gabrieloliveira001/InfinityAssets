@@ -1,0 +1,87 @@
+# InfinityAssets - config.yml
+# As chaves seguem o mesmo formato do config.yml do ItemsAdder, entao voce pode copiar
+# as secoes equivalentes do seu ItemsAdder/config.yml para ca.
+# Chaves do ItemsAdder que o InfinityAssets ainda nao usa sao simplesmente ignoradas.
+
+resource-pack:
+  uuid: "d69238f2-b7ce-30b0-8262-17cd9490f29d"
+  auto_apply:
+    enabled: true
+    delay_ticks: 1
+  kick-player-on-decline: true
+  kick-player-on-fail: true
+  hosting:
+    no-host:
+      # Apenas gera o zip (output/generated.zip), sem enviar aos jogadores.
+      enabled: false
+    external-host:
+      # Use se voce mesmo hospeda o zip (ex: Dropbox/GitHub/CDN). Link direto para o .zip.
+      enabled: false
+      url: ''
+    self-host:
+      # Servidor HTTP interno que serve o output/generated.zip.
+      enabled: true
+      server-ip: '127.0.0.1' # Coloque o IP publico ou dominio do seu servidor
+      pack-port: 8163
+      append-port: true
+      protection:
+        block_non_game_requests: false
+  # Mensagem mostrada na tela de download do pacote (extra do InfinityAssets).
+  prompt-message: "&eEste servidor utiliza um resource pack customizado."
+  zip:
+    ignore-files-ext:
+      - db
+      - yml
+      - xcf
+      - psd
+      - html
+      - gz
+      - rar
+      - zip
+      - 7z
+    contents-folders-priority:
+      - vanilla
+      - _iainternal
+    merge_other_plugins_resourcepacks_folders:
+      - "ModelEngine/resource pack"
+  items:
+    CustomModelData-starting-value:
+      ALL: 10000
+
+config_files:
+  lang: 'pt'
+  dictionaries-lang: 'en'
+
+items:
+  hide-custom-durability-lore: true
+  # (InfinityAssets) true = attackDamage/attackSpeed em "mainhand" sao o valor mostrado no tooltip
+  # (ex: attackDamage: 7 -> "7 de Dano de Ataque"). false = valor somado direto como modificador.
+  attribute_modifiers_as_displayed_values: true
+
+entities:
+  max_furniture_per_chunk: 20
+
+font_images:
+  chat:
+    enabled: true
+  customitem_name_and_lore:
+    enabled: true
+
+recipes:
+  crafting:
+    enabled: true
+  cooking:
+    enabled: true
+  smithing:
+    enabled: true
+  custom-recipes:
+    unlock:
+      automatically: true
+
+menu:
+  # Menu /ia com textura propria (vem dentro do resource pack gerado).
+  # Desligado: o /ia vira um bau comum, sem textura.
+  custom-gui: true
+  # Esconde o texto "Inventario" que o jogo desenha em cima do inventario de baus,
+  # porque a textura do menu ja tem o proprio titulo INVENTORY. Vale para todos os baus.
+  hide-inventory-label: true

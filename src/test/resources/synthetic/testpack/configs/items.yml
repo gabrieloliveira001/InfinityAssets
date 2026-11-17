@@ -1,0 +1,83 @@
+info:
+  namespace: synth
+  dictionary-lang: en
+dictionary:
+  display-name-ruby_sword: "&cRuby Sword"
+items:
+  ruby:
+    name: "&cRuby :smile:"
+    material: PAPER
+    graphics:
+      texture: item/ruby
+  ruby_sword:
+    display_name: display-name-ruby_sword
+    permission_suffix: synth.ruby_sword
+    resource:
+      material: DIAMOND_SWORD
+      generate: true
+      textures:
+        - tools/ruby_sword.png
+    durability:
+      max_durability: 900
+    attribute_modifiers:
+      mainhand:
+        attackDamage: 7
+        attackSpeed: -2.4
+  ruby_bow:
+    material: BOW
+    graphics:
+      textures:
+        normal: tools/ruby_bow
+        pulling_0: tools/ruby_bow_0
+        pulling_1: tools/ruby_bow_1
+        pulling_2: tools/ruby_bow_2
+  ruby_helmet:
+    resource:
+      material: IRON_HELMET
+      generate: true
+      textures: [armor/ruby_helmet.png]
+    equipment:
+      id: synth:ruby_armor
+  disabled_item:
+    enabled: false
+    material: STONE
+equipments:
+  ruby_armor:
+    type: armor
+    layer_1: armor/ruby_layer_1
+    layer_2: armor/ruby_layer_2
+font_images:
+  smile:
+    path: font/smile.png
+    scale_ratio: 9
+    y_position: 8
+sounds:
+  boom:
+    path: sfx/boom
+    settings:
+      subtitle: sound.boom
+categories:
+  ruby_stuff:
+    icon: synth:ruby
+    name: Ruby
+    items:
+      - synth:*
+recipes:
+  crafting_table:
+    ruby_sword:
+      pattern: [XAX, XAX, XBX]
+      ingredients:
+        A: synth:ruby
+        B: STICK
+      result:
+        item: synth:ruby_sword
+        amount: 1
+  cooking:
+    ruby_smelt:
+      ingredient:
+        item: synth:ruby
+      machines: [FURNACE, BLAST_FURNACE]
+      result:
+        item: DIAMOND
+huds:
+  dummy: {}

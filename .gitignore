@@ -1,0 +1,6 @@
+/.gradle/
+/build/
+/.idea/
+*.iml
+# server-specific content packs are not part of the repository
+/src/main/resources/contents/

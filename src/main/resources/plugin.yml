@@ -1,0 +1,66 @@
+name: InfinityAssets
+version: '${version}'
+main: net.byebye.infinityAssets.InfinityAssets
+api-version: '1.21'
+description: Itens, armaduras, moveis, receitas e resource pack usando configs no formato do ItemsAdder.
+softdepend: [ModelEngine]
+
+commands:
+  ia:
+    description: Abre o menu de itens (ou uma categoria).
+    usage: /<command> [categoria] [jogador]
+    permission: ia.user.ia
+  iaget:
+    description: Pega um item customizado.
+    usage: /<command> <item> [quantidade]
+    permission: ia.admin.iaget
+  iagive:
+    description: Da um item customizado a um jogador.
+    usage: /<command> <jogador> <item> [quantidade] [silent]
+    permission: ia.admin.iagive
+  iazip:
+    description: Recarrega as configs e gera o resource pack.
+    aliases: [iaz]
+    usage: /<command>
+    permission: ia.admin.iazip
+  iareload:
+    description: Recarrega as configs (sem gerar o pack).
+    usage: /<command>
+    permission: ia.admin.iareload
+  iatexture:
+    description: Reenvia o resource pack.
+    aliases: [iapack]
+    usage: /<command> [all|jogador]
+    permission: ia.user.iatexture
+  iatag:
+    description: Mostra o id do item customizado na mao.
+    usage: /<command>
+    permission: ia.admin.iatag
+
+permissions:
+  ia.user.ia:
+    default: true
+  ia.user.iatexture:
+    default: true
+  ia.user.image.chat:
+    default: true
+  ia.user.ia.categories:
+    default: op
+  ia.user.ia.categories.others:
+    default: op
+  ia.user.ia.getitem:
+    default: op
+  ia.user.iatexture.all:
+    default: op
+  ia.admin.iaget:
+    default: op
+  ia.admin.iagive:
+    default: op
+  ia.admin.iazip:
+    default: op
+  ia.admin.iareload:
+    default: op
+  ia.admin.iatag:
+    default: op
+  ia.resourcepack.bypasskick:
+    default: false
