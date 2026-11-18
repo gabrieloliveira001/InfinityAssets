@@ -15,6 +15,7 @@
   <img src="https://img.shields.io/badge/Minecraft-1.21.4%20--%2026.3-12AFFB" alt="Minecraft 1.21.4 to 26.3">
   <img src="https://img.shields.io/badge/Java-21-E76F00?logo=openjdk&logoColor=white" alt="Java 21">
   <a href="https://discord.gg/edzKrjZ8hf"><img src="https://img.shields.io/badge/Discord-support-5865F2?logo=discord&logoColor=white" alt="Discord"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT license"></a>
 </p>
 
 ---
@@ -93,4 +94,4 @@ The plugin jar ends up in `build/libs/`. The tests build a full resource pack fr
 
 ## 📄 License
 
-© byebye_gg. All rights reserved. The source is public to read and learn from; the plugin is distributed for free on [Modrinth](https://modrinth.com/plugin/infinityassets) and [Spigot](https://www.spigotmc.org/resources/136246/).
+[MIT](LICENSE) © byebye_gg. Free to use, modify and share; keep the copyright notice. The plugin is also on [Modrinth](https://modrinth.com/plugin/infinityassets) and [Spigot](https://www.spigotmc.org/resources/136246/).
