@@ -9,6 +9,7 @@ import net.byebye.infinityAssets.menu.MenuManager;
 import net.byebye.infinityAssets.pack.PackGenerator;
 import net.byebye.infinityAssets.pack.PackService;
 import net.byebye.infinityAssets.recipe.RecipeManager;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -33,6 +34,8 @@ import java.util.jar.JarFile;
  * and builds its own resource pack. Needs neither ItemsAdder nor Oraxen.
  */
 public final class InfinityAssets extends JavaPlugin {
+    // bStats plugin id (https://bstats.org/plugin/bukkit/InfinityAssets/35430).
+    private static final int BSTATS_ID = 35430;
     private Settings settings;
     private ContentRegistry registry;
     private ItemFactory factory;
@@ -44,6 +47,7 @@ public final class InfinityAssets extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        if (BSTATS_ID > 0) new Metrics(this, BSTATS_ID);
         saveDefaultConfig();
         File contents = new File(getDataFolder(), "contents");
         if (!contents.exists() || contents.list() == null || contents.list().length == 0) extractDefaultContents();

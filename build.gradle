@@ -1,10 +1,11 @@
 plugins {
     id 'java'
+    id 'com.gradleup.shadow' version '8.3.0'
     id("xyz.jpenilla.run-paper") version "2.3.1"
 }
 
 group = 'net.byebye'
-version = '1.2'
+version = '1.2.1'
 
 repositories {
     mavenCentral()
@@ -12,16 +13,34 @@ repositories {
         name = "spigotmc-repo"
         url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
     }
+    maven {
+        name = "bstats"
+        url = "https://repo.codemc.io/repository/maven-public/"
+    }
 }
 
 dependencies {
     compileOnly("org.spigotmc:spigot-api:1.21.4-R0.1-SNAPSHOT")
+    implementation("org.bstats:bstats-bukkit:3.1.0")
 
     testImplementation("org.spigotmc:spigot-api:1.21.4-R0.1-SNAPSHOT")
     testImplementation(platform("org.junit:junit-bom:5.11.4"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
+
+shadowJar {
+    // Relocate bStats so it doesn't clash with other plugins that also shade it.
+    relocate 'org.bstats', 'net.byebye.infinityAssets.libs.bstats'
+    archiveClassifier = ''
+    minimize()
+}
+
+tasks.named('jar', Jar) {
+    archiveClassifier = 'plain'
+}
+
+tasks.named('assemble') { dependsOn 'shadowJar' }
 
 test {
     useJUnitPlatform()
